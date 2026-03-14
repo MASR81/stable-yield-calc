@@ -91,11 +91,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const assetSearch = document.getElementById('asset-search');
     const complianceResults = document.getElementById('compliance-results');
 
-    // Mock database
+    // Mock database with top assets
     const mockDb = {
-        'usdc': { name: 'USD Coin', icon: '🔵', risk: 'low', mica: 'Approved / E-Money Institute', sec: 'No Action (Currently)', audit: 'Monthly by BDO' },
-        'usdt': { name: 'Tether', icon: '🟢', risk: 'med', mica: 'Partially Compliant', sec: 'Under Scrutiny', audit: 'Quarterly (BDO Italia)' },
-        'bnb': { name: 'Binance Coin', icon: '🟡', risk: 'high', mica: 'Not Approved', sec: 'Active Litigation', audit: 'Internal' }
+        'btc': { name: 'Bitcoin', icon: '₿', risk: 'low', mica: 'Exempt (Decentralized)', sec: 'Commodity (Not Security)', audit: 'On-chain Proof of Work', articleLink: 'article-safest-exchanges.html' },
+        'eth': { name: 'Ethereum', icon: '⟠', risk: 'low', mica: 'Exempt (Decentralized)', sec: 'Likely Commodity', audit: 'On-chain Proof of Stake', articleLink: null },
+        'usdc': { name: 'USD Coin', icon: '🔵', risk: 'low', mica: 'Approved / E-Money Token', sec: 'No Action', audit: 'Monthly by BDO', articleLink: 'article-stablecoin-yields.html' },
+        'usdt': { name: 'Tether', icon: '🟢', risk: 'med', mica: 'Partially Compliant', sec: 'Under Scrutiny', audit: 'Quarterly (BDO Italia)', articleLink: 'article-stablecoin-yields.html' },
+        'bnb': { name: 'Binance Coin', icon: '🟡', risk: 'high', mica: 'Not Approved', sec: 'Active Litigation', audit: 'Internal', articleLink: 'article-safest-exchanges.html' },
+        'xrp': { name: 'XRP', icon: '✖', risk: 'med', mica: 'Pending Approval', sec: 'Partial Victory (Non-Security)', audit: 'Ripple Disclosures', articleLink: null },
+        'sol': { name: 'Solana', icon: '◎', risk: 'med', mica: 'Pending Approval', sec: 'Named in Lawsuits as Security', audit: 'On-chain', articleLink: null },
+        'ada': { name: 'Cardano', icon: '₳', risk: 'med', mica: 'Pending Approval', sec: 'Named in Lawsuits as Security', audit: 'On-chain', articleLink: null },
+        'dai': { name: 'Dai', icon: '🟡', risk: 'low', mica: 'Algorithmic (Subject to Review)', sec: 'No Action', audit: 'On-chain (MakerDAO)', articleLink: null },
+        'doge': { name: 'Dogecoin', icon: '🐕', risk: 'low', mica: 'Exempt (Decentralized)', sec: 'Commodity Likelihood', audit: 'On-chain Proof of Work', articleLink: null },
+        'dot': { name: 'Polkadot', icon: '🟣', risk: 'med', mica: 'Pending Approval', sec: 'Claimed to Morphed to Software', audit: 'Web3 Foundation', articleLink: null },
+        'matic': { name: 'Polygon', icon: '🟪', risk: 'high', mica: 'Pending Approval', sec: 'Named in Lawsuits as Security', audit: 'On-chain', articleLink: null }
     };
 
     searchBtn.addEventListener('click', () => {
@@ -129,18 +138,24 @@ document.addEventListener('DOMContentLoaded', () => {
             if (assetData.risk === 'low') {
                 badge.classList.add('risk-low');
                 badge.textContent = 'Low Risk';
-                // Show Tax Software for low-risk yield farming
                 document.getElementById('tax-ad-container').classList.remove('hidden');
             } else if (assetData.risk === 'med') {
                 badge.classList.add('risk-med');
                 badge.textContent = 'Medium Risk';
-                // Show Tax Software for medium-risk
                 document.getElementById('tax-ad-container').classList.remove('hidden');
             } else {
                 badge.classList.add('risk-high');
                 badge.textContent = 'High Regulatory Risk';
-                // Show Legal Ad for high risk items
                 document.getElementById('legal-ad-container').classList.remove('hidden');
+            }
+
+            // Unhide or hide the dynamic guide link
+            if (assetData.articleLink) {
+                document.getElementById('c-guide-container').classList.remove('hidden');
+                document.getElementById('c-guide-link').href = assetData.articleLink;
+                document.getElementById('c-guide-link').textContent = `Read Our Guide heavily featuring ${assetData.name}`;
+            } else {
+                document.getElementById('c-guide-container').classList.add('hidden');
             }
 
             complianceResults.classList.remove('hidden');
