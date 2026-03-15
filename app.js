@@ -60,9 +60,16 @@ document.addEventListener('DOMContentLoaded', () => {
             } else {
                 // Standard Affiliate (Bank/Exchange)
                 document.getElementById('lead-gen-container').classList.add('hidden');
-                document.getElementById('affiliate-rate').textContent = (rate + 0.5).toFixed(1) + '%';
+                // Boost the display rate slightly to encourage clicks
+                const displayRate = (rate + 1.25).toFixed(1);
+                document.getElementById('affiliate-rate').textContent = displayRate + '%';
                 const adSlot = document.getElementById('yield-ad-container');
                 adSlot.classList.remove('hidden');
+                
+                // Add a small animation to draw attention
+                adSlot.style.animation = 'none';
+                adSlot.offsetHeight; /* trigger reflow */
+                adSlot.style.animation = 'fadeIn 0.5s ease forwards';
             }
 
             // Show Email Alert slot
