@@ -1,0 +1,13 @@
+Instructions,Asset Ticker,Balance,Platform/Exchange,Average Buy Price,Current Price (Formula) ->,Current Value (Formula) ->,Profit/Loss (Formula) ->,Current APY (%),Daily Yield (Formula) ->,Yearly Yield (Formula) ->
+Import this into Google Sheets,BTC,0.5,Kraken,62000,"=GOOGLEFINANCE(""CURRENCY:""&B2&""USD"")","=C2*F2","=G2-(C2*E2)",0.0,0.0,0.0
+Do NOT edit cells with formulas!,ETH,4.2,Coinbase,2900,"=GOOGLEFINANCE(""CURRENCY:""&B3&""USD"")","=C3*F3","=G3-(C3*E3)",2.0,"=(G3*(I3/100))/365","=G3*(I3/100)"
+Update Balances manually,USDC,50000,Aave,1.0,"=GOOGLEFINANCE(""CURRENCY:""&B4&""USD"")","=C4*F4","=G4-(C4*E4)",5.5,"=(G4*(I4/100))/365","=G4*(I4/100)"
+Update APY manually weekly,SOL,150,Phantom,110,"=GOOGLEFINANCE(""CURRENCY:""&B5&""USD"")","=C5*F5","=G5-(C5*E5)",7.2,"=(G5*(I5/100))/365","=G5*(I5/100)"
+,USDT,10000,Nexo,1.0,"=GOOGLEFINANCE(""CURRENCY:""&B6&""USD"")","=C6*F6","=G6-(C6*E6)",6.0,"=(G6*(I6/100))/365","=G6*(I6/100)"
+,,,,,TOTAL PORTFOLIO VALUE:,"=SUM(G2:G10)","=SUM(H2:H10)",TOTAL PASSIVE INCOME:,"=SUM(J2:J10)","=SUM(K2:K10)"
+,,,,,,,,,,
+SETUP INSTRUCTIONS:,,,,,,,,,,
+1. Open Google Sheets -> File -> Import -> Upload this CSV file.,,,,,,,,,,
+2. The 'Current Price' column uses real-time =GOOGLEFINANCE() API calls to pull live crypto prices.,,,,,,,,,,
+3. To add a new row: Copy row 6 and paste it into Row 7. Then just change the Ticker (Column B), Balance (Column C), and APY (Column I). The formulas will auto-calculate everything else.,,,,,,,,,,
+4. To track CeFi vs DeFi exposure, sort the sheet by Column D (Platform/Exchange).,,,,,,,,,,
