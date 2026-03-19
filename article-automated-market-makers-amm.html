@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How Automated Market Makers (AMMs) Generate Yield for Liquidity Providers</title>
+    <meta name="description"
+        content="Understand the algorithmic math behind Automated Market Makers (AMMs) like Uniswap and Curve, and learn how liquidity provisioning generates passive yield.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3566206723339976"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="app-container">
+        <header class="glass-header">
+            <div class="logo">
+                <a href="index.html" style="text-decoration:none; display:flex; align-items:center; gap:0.8rem;">
+                    <span class="logo-icon">⚡</span>
+                    <h1>StableYieldCalc</h1>
+                </a>
+            </div>
+            <nav>
+                <a href="index.html" class="nav-btn">Back to Home</a>
+            </nav>
+        </header>
+
+        <main class="content-wrapper">
+            <div class="card glass-card report-card">
+                <article class="report-content">
+                    <h3>How Automated Market Makers (AMMs) Generate Yield for Liquidity Providers</h3>
+                    <p class="report-meta">Published: March 19, 2026 | Read Time: 7 mins</p>
+
+                    <p>If you've ever swapped a token on a decentralized exchange (DEX) like Uniswap, SushiSwap, or Curve, you've interacted directly with an <strong>Automated Market Maker (AMM)</strong>. But as a yield investor, your goal isn't just to use the exchange—it's to become the exchange.</p>
+                    
+                    <p>Traditional stock exchanges like the NYSE use an "order book" model, matching buyers with sellers. In decentralized finance (DeFi), where transaction costs on blockchains can be expensive and slow, the order book model was replaced by algorithmic liquidity pools. Here is how AMMs function, and how they print passive income for Liquidity Providers (LPs).</p>
+
+                    <h4>The Mathematical Core: x * y = k</h4>
+                    <p>Instead of matching individual buyers to sellers, an AMM replaces the counterparty with a smart contract. Users ("Liquidity Providers") deposit an equal value of two tokens into a pool. For example, $100,000 of ETH and $100,000 of USDC.</p>
+                    <p>The AMM then uses the Constant Product equation <strong>(x * y = k)</strong> to price the assets, where <em>x</em> is the amount of Token A, <em>y</em> is the amount of Token B, and <em>k</em> is a fixed constant.</p>
+                    <p>When a trader comes to the DEX wanting to buy ETH using USDC, they add their USDC to the pool and remove ETH. Because the amount of ETH in the pool decreased, the algorithmic formula automatically causes the price of the remaining ETH to increase. This ensures the pool never runs out of liquidity, as the token gets infinitely more expensive as its supply diminishes.</p>
+
+                    <h4>How Do LPs Make Money?</h4>
+                    <p>Liquidity providers take on the risk of <strong>Impermanent Loss</strong> when the ratio of the pool drastically shifts. To compensate for this risk, the protocol charges a fee (typically between 0.05% to 0.3%) to the trader for every single swap executed.</p>
+
+                    <ul class="structured-list">
+                        <li><strong>Proportional Accrual:</strong> That trading fee is not kept by a centralized CEO. It is entirely distributed back into the liquidity pool. If you own 10% of the total liquidity in the ETH/USDC pool, you earn 10% of every single trading fee generated.</li>
+                        <li><strong>Compounding Growth:</strong> Because the fees are added directly back to the pool balances, your exact percentage ownership of the pool results in a continuously compounding balance when you finally decide to withdraw your liquidity.</li>
+                        <li><strong>Incentivized Farming Rewards:</strong> To attract initial liquidity, protocols will frequently mint their native governance token (like $UNI or $CRV) and distribute it as a bonus yield precisely to those who are providing liquidity, supercharging the APY.</li>
+                    </ul>
+
+                    <h4>Concentrated Liquidity (Uniswap V3)</h4>
+                    <p>In modern DeFi, AMM architecture has evolved to "Concentrated Liquidity." Rather than spreading your capital across an infinite price curve from $0 to infinity, you can define exactly what price range you want to provide liquidity for.</p>
+                    <p>If ETH is currently $3,000, you can choose to only provide liquidity between $2,900 and $3,100. This highly concentrated capital deployment significantly amplifies your fee generation, as your money is working tirelessly precisely where the trading volume is happening—though it equally magnifies your risk of impermanent loss if the price exits your specified range.</p>
+
+                    <div class="inline-cta">
+                        <p><strong>Track your AMM yields and impermanent loss mathematically.</strong></p>
+                        <a href="index.html#yield-tool" class="cta-btn">Access Our Analytics Tool</a>
+                    </div>
+                </article>
+            </div>
+        </main>
+
+        <footer class="app-footer">
+            <div class="footer-content">
+                <p class="disclaimer"><strong>Disclaimer:</strong> The information provided on StableYieldCalc does not constitute financial, investment, or legal advice.</p>
+                <div class="footer-links">
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
+                    <a href="mailto:contact@stableyieldcalc.com">Contact</a>
+                </div>
+                <p class="copyright">&copy; 2026 StableYieldCalc. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>
